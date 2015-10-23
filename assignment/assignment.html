@@ -9,21 +9,82 @@
   //declare your images as a global variable
  
 
-	function preload(){
+	var imgBG; 
 
-		// Load the image
+	var img01;
+		var img01X;
+		var img01Y;
+		var img01Placed = false;
+
+	var img02;
+		var img02X;
+		var img02Y;
+		var img02Placed = false;
+
+	var img03;
+	var img04;
+	var img05;
+	var img06;
+	var img07;
+
+
+	function preload(){
+	// Load the image
+		imgBG = loadImage("imgs/Canvas_BG.png");
+		img01 = loadImage("imgs/01Can_Outline.png");
+		img02 = loadImage("imgs/02Big_Red.png");
+		img03 = loadImage("imgs/03Campbells_Logo.png");
+		img04 = loadImage("imgs/04Soup_Black.png");
+		img05 = loadImage("imgs/05Tomato_Red.png");
+		img06 = loadImage("imgs/06Gold_Sircle.png");
+		img07 = loadImage("imgs/07Round_Emblem.png");
 	}
 
 
 	function setup() {
-
-	  //set up your canvas
+	//set up your canvas
+		createCanvas(1300, 760);
+		// imageMode(CENTER);
 
 	}
 
 	function draw() {
+	//draw
+		background(imgBG);
 
-		//draw
+		// First Image
+		blend(img01, 0, 0, img01.width, img01.height, img01X, img01Y, img01.width, img01.height, MULTIPLY);
+
+				if (img01Placed) {
+					blend(img01, 0, 0, img01.width, img01.height, img01X, img01Y, img01.width, img01.height, MULTIPLY);
+				}
+
+				else {
+					blend(img01, 0, 0, img01.width, img01.height, mouseX, mouseY, img01.width, img01.height, MULTIPLY);
+				}
+
+		// Second Imgae
+
+		if (img01Placed){
+				
+
+
+				if (img02Placed) {
+					blend(img02, 0, 0, img02.width, img02.height, img02X, img02Y, img02.width, img02.height, MULTIPLY);vv
+				}
+
+				else {
+					blend(img02, 0, 0, img02.width, img02.height, mouseX, mouseY, img02.width, img02.height, MULTIPLY);
+				}
+			}
+
+	}
+
+	function mouseClicked(){
+
+		if (img01Placed ) { img02Placed = true ; img02X = mouseX; img02Y = mouseY;}
+				if (!img01Placed) {img01Placed = true ; img01X = mouseX; img01Y = mouseY;}
+					
 
 	}
 
